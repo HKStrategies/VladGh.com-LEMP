@@ -23,6 +23,7 @@
 ### Program Versions:
 NGINX_STABLE="1.0.13"
 NGINX_DEV="1.1.16"
+NGINX_VER=$NGINX_STABLE
 PHP_VER="5.3.10"
 APC_VER="3.1.9"
 SUHOSIN_VER="0.9.33"
@@ -80,8 +81,6 @@ function check_download () {
   else
     echo "Error: $1 Download was unsuccessful." >&3
     echo "Check the install.log for errors." >&3
-    echo "Press any key to exit..." >&3
-    read -n 1
     exit 1
   fi
 }
@@ -286,8 +285,6 @@ function check_php () {
   else
     echo 'Error: PHP installation was unsuccessful.' >&3
     echo "Check the install.log for errors." >&3
-    echo 'Press any key to exit...' >&3
-    read -n 1
     exit 1
   fi
 }
@@ -372,8 +369,6 @@ function check_nginx () {
   else
     echo 'Error: NginX installation was unsuccessful.' >&3
     echo "Check the install.log for errors." >&3
-    echo 'Press any key to exit...' >&3
-    read -n 1
     exit 1
   fi
 }
@@ -437,26 +432,6 @@ echo "========================================================================="
 echo "For more information please visit:" >&3
 echo "https://github.com/vladgh/VladGh.com-LEMP" >&3
 echo "=========================================================================" >&3
-echo "Do you want to continue[Y/n]:" >&3
-read  continue_install
-case  $continue_install  in
-  'n'|'N'|'No'|'no')
-  echo -e "\nCancelled." >&3
-  exit 1
-  ;;
-  *)
-esac
-
-echo "Which of the following NginX releases do you want installed:" >&3
-echo "1) Latest Development Release ($NGINX_DEV)(default)" >&3
-echo "2) Latest Stable Release ($NGINX_STABLE)" >&3
-echo -n "Enter your menu choice [1 or 2]: " >&3
-read nginxchoice
-case $nginxchoice in
-  1) NGINX_VER=$NGINX_DEV ;;
-  2) NGINX_VER=$NGINX_STABLE ;;
-  *) NGINX_VER=$NGINX_DEV ;
-esac
 
 prepare_system
 
@@ -487,13 +462,9 @@ if [ -e "/var/run/nginx.pid" ] && [ -e "/var/run/php-fpm.pid" ] ; then
   echo "- http://$(hostname -f)/apc.php (APC Status page)" >&3
   echo "- http://$(hostname -f)/nginx_status (NginX Status page)" >&3
   echo "- http://$(hostname -f)/status?html (FPM Status page)" >&3
-  echo 'Press any key to exit...' >&3
-  read -n 1
   exit 0
 else
   echo "=========================================================================" >&3
   echo "Errors encountered. Check the install.log." >&3
-  echo 'Press any key to exit...' >&3
-  read -n 1
   exit 1
 fi
