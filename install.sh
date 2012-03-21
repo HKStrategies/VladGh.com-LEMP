@@ -329,7 +329,7 @@ function install_nginx() {
   cp $SRCDIR/conf_files/nginx.conf /etc/nginx/nginx.conf
   mkdir -p /etc/nginx/sites-available /etc/nginx/sites-enabled
   cp $SRCDIR/conf_files/default /etc/nginx/sites-available/default
-  ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+  #ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
   cp $SRCDIR/ext/nxensite $DSTDIR/nginx/sbin/nxensite
   cp $SRCDIR/ext/nxdissite $DSTDIR/nginx/sbin/nxdissite
