@@ -309,6 +309,7 @@ function install_nginx() {
 --lock-path=/var/lock/nginx.lock \
 --with-http_stub_status_module \
 --with-http_ssl_module \
+--with-http_sub_module \
 --with-http_realip_module \
 --with-http_gzip_static_module \
 --without-mail_pop3_module \
