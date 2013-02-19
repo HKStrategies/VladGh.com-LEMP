@@ -134,7 +134,7 @@ function install_php() {
 --with-mysql \
 --with-mysqli \
 --with-pdo-mysql \
---with-openssl \
+--without-openssl \
 --with-xmlrpc \
 --with-xsl \
 --with-bz2 \
