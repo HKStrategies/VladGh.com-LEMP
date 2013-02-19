@@ -21,10 +21,10 @@
 # you should use the packages provided by your distribution.
 
 ### Program Versions:
-NGINX_STABLE="1.0.13"
-NGINX_DEV="1.1.16"
+NGINX_STABLE="1.2.7"
+NGINX_DEV="1.3.13"
 NGINX_VER=$NGINX_STABLE
-PHP_VER="5.3.10"
+PHP_VER="5.3.21"
 APC_VER="3.1.9"
 SUHOSIN_VER="0.9.33"
 
